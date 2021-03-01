@@ -10,9 +10,25 @@ class SearchForm extends Component {
         }
     }
 
+    _handleClick = async () => {
+        const data = await fetch(`https://api.github.com/users/${this.state.username}`).then(response => response.json());
+        this.setState({
+            userArray: [...this.state.userArray, data],
+        });
+    }
+
     render () {
         return(
-            <UserCardList />
+            <>
+                <form>
+                    <label>
+                        Search GitHub Users:
+                        <input type="text" value={this.state.username} placeholder="Enter username here"></input>
+                    </label>
+                    <button type="button" onClick={this._handleClick}>Search</button>
+                </form>
+                <UserCardList users={this.state.userArray}/>
+            </>
         )
     }
 }
