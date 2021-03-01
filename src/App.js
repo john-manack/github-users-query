@@ -3,9 +3,14 @@ import SearchForm from './components/SearchForm';
 
 function App() {
   return (
-    <div className="App">
-      <SearchForm />
-    </div>
+    <>
+      <header className="App-header">
+        <h2>GitHub User Search</h2>
+      </header>
+      <div className="App">
+        <SearchForm />
+      </div>
+    </>
   );
 }
 

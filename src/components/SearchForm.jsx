@@ -27,7 +27,7 @@ class SearchForm extends Component {
                     </label>
                     <button type="button" onClick={this._handleClick}>Search</button>
                 </form>
-                <UserCardList users={this.state.userArray}/>
+                {this.state.userArray.length ? (<UserCardList users={this.state.userArray}/>) : <p>No users to display...</p>}
             </>
         )
     }
